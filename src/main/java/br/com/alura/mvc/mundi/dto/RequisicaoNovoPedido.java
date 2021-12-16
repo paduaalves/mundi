@@ -1,14 +1,20 @@
 package br.com.alura.mvc.mundi.dto;
 
-import br.com.alura.mvc.mundi.model.Pedido;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import javax.validation.constraints.NotBlank;
 
-@AllArgsConstructor
+import br.com.alura.mvc.mundi.model.Pedido;
+import lombok.Getter;
+import lombok.Setter;
+
 @Getter
+@Setter
 public class RequisicaoNovoPedido {
+    
+    @NotBlank
     private String nomeProduto;
+    @NotBlank
     private String urlProduto;
+    @NotBlank
     private String urlImagem;
     private String descricao;
 
