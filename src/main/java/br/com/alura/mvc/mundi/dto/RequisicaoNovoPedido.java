@@ -2,6 +2,7 @@ package br.com.alura.mvc.mundi.dto;
 
 import javax.validation.constraints.NotBlank;
 
+import br.com.alura.mvc.mundi.enums.StatusPedido;
 import br.com.alura.mvc.mundi.model.Pedido;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,6 +24,7 @@ public class RequisicaoNovoPedido {
                 .urlProduto(urlProduto)
                 .urlImagem(urlImagem)
                 .descricao(descricao)
+                .status(StatusPedido.AGUARDANDO)
                 .build();
     }
 }
