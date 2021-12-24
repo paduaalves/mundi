@@ -15,15 +15,16 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 public class WebSecurityonfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
+        http.authorizeRequests().anyRequest().authenticated().and().formLogin(form -> form.loginPage("/login").permitAll());
     }
 
     @Override
     @Bean
     protected UserDetailsService userDetailsService() {
         // TODO Auto-generated method stub
-       UserDetails user = User.withDefaultPasswordEncoder().username("joao")
-       .password("joao").roles("ADM").build();
-       return new InMemoryUserDetailsManager(user);
+        UserDetails user = User.withDefaultPasswordEncoder().username("joao")
+                .password("joao").roles("ADM").build();
+        return new InMemoryUserDetailsManager(user);
     }
 }
+ 
