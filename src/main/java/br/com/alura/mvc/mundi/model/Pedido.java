@@ -7,9 +7,11 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import br.com.alura.mvc.mundi.enums.StatusPedido;
 import lombok.AllArgsConstructor;
@@ -37,4 +39,6 @@ public class Pedido {
     private String urlImagem;
     @Enumerated(EnumType.STRING)
     private StatusPedido status;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 }
